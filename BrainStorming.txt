@@ -1,3 +1,21 @@
 What can we use to make our game cooler and make the presentation of the game cooler.
 
-1. https://www.youtube.com/watch?v=szzVlQ653as from 0:24 second to 1:43  
+1. https://www.youtube.com/watch?v=szzVlQ653as from 0:24 second to 1:43
+
+ToDo:
+Alisa:  1. make objects cliackable 
+		3. distinguish between "in game mode" and "reading the story mode"
+
+Anvi:
+
+
+
+Camila:
+
+
+
+Together:
+		1. create weights matrix (each event gives different weight coefficient)
+		2. think of attributes for each religion for each event
+		3. create events list
+		4. create starting 
