@@ -5,9 +5,10 @@ stage = 0
 religions = {1,2,3,4}
 -- coefficients = {birth:0.16, school:0.6, newyear:0.4, 16th:0.3, haloween:0.18, uni:0.7, marriage:0.5, job:0.75, funerals:1}
 stages = {0, 1, 2, 3, 4, 5}
-coefficients = {birth = {0.16}, school = {0.6}, uni = {0.7}, funerals = {1}}
-final_score = {[1] = {}, [2] = {}, [3] = {}, [4] = {}}
+coefficients = {[1] = {0.16}, [2] = {0.6}, [3] = {0.7}, [4] = {1}}
+final_score = {}
 result = {}
+
 
 function love.load()
     love.window.setMode(900, 600)
@@ -85,7 +86,16 @@ local function sumUpValues()
 	table.insert(result, valuePasta)
 	table.insert(result, valueJedi)
 	table.insert(result, valueBlackhole)
-	res = math.max(unpack(result))
+	res_value = math.max(unpack(result))
+	if res_value == valueUnicorn then
+		res_name = "Unicornism"
+	elseif res_value == valuePasta then
+	    res_name = "Pastafarai"
+	elseif res_value == valueJedi then
+	    res_name = "Jedism"
+	elseif res_value == valueBlackhole then
+	    res_name = "Balckholism"
+	end
 end
 
 -- function for adding values to religion after item was selected
@@ -139,14 +149,12 @@ function love.mousepressed(x,y,button)
             icon4 = funeral4
         elseif stage == 4 and selectedItem ~= 0 and clicked then
             addValueToReligion(selectedItem, 0.9)
-            background = bgFuneral
+            background = bg1
             stage = 5
             icon1 = smile
             icon2 = smile
             icon3 = smile
             icon4 = smile
-        elseif stage == 5 then
-            background = bg1
         	sumUpValues()
     	end
     end
@@ -180,8 +188,8 @@ function love.draw()
 		love.graphics.print(tostring(valueBlackhole), 180, 280)
 	elseif stage == 5 then
 		love.graphics.draw(background)
-	    love.graphics.print("blackhole", 100, 280)
-		love.graphics.print(tostring(res), 180, 300)
+	    love.graphics.print(tostring(res_name), 100, 280)
+		love.graphics.print(tostring(res_value), 180, 300)
 	end 
 
     --debug strings
