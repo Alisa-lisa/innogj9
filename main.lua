@@ -4,8 +4,61 @@ stage = 0
 -- 1 - unicornism, 2-pastafarai,3-jedism,4-blackholism, 0 - clicking unsupported position
 religions = {1,2,3,4}
 -- coefficients = {birth:0.16, school:0.6, newyear:0.4, 16th:0.3, haloween:0.18, uni:0.7, marriage:0.5, job:0.75, funerals:1}
-coefficints = {0.16, 0.6, 0.7, 1}
+stages = {0, 1, 2, 3, 4, 5}
+coefficients = {birth = {0.16}, school = {0.6}, uni = {0.7}, funerals = {1}}
+final_score = {[1] = {}, [2] = {}, [3] = {}, [4] = {}}
+result = {}
 
+function love.load()
+    love.window.setMode(900, 600)
+    bg1 = love.graphics.newImage("Background1.png")
+    bg2 = love.graphics.newImage("Background2.png")
+    bgBirth = love.graphics.newImage("BirthBackground.png")
+    bgSchool = love.graphics.newImage("SchoolBackground.png")
+    bgUni = love.graphics.newImage("UniversityBackground.png")
+    bgFuneral = love.graphics.newImage("FuneralsBackground.png")
+    smile = love.graphics.newImage("smile.png")
+    love.graphics.setColor(255,255,255,255)
+    background = bg1
+    icon1 = nil
+    icon2 = nil
+    icon3 = nil
+    icon4 = nil
+    -- load item icons
+    birth1 = love.graphics.newImage("birth1.png")
+    birth2 = love.graphics.newImage("birth2.png")
+    birth3 = love.graphics.newImage("birth3.png")
+    birth4 = love.graphics.newImage("birth4.png")
+
+    school1 = love.graphics.newImage("school1.png")
+    school2 = love.graphics.newImage("school2.png")
+    school3 = love.graphics.newImage("school3.png")
+    school4 = love.graphics.newImage("school4.png")
+
+    uni1 = love.graphics.newImage("uni1.png")
+    uni2 = love.graphics.newImage("uni2.png")
+    uni3 = love.graphics.newImage("uni3.png")
+    uni4 = love.graphics.newImage("uni4.png")
+
+    funeral1 = love.graphics.newImage("funeral1.png")
+    funeral2 = love.graphics.newImage("funeral2.png")
+    funeral3 = love.graphics.newImage("funeral3.png")
+    funeral4 = love.graphics.newImage("funeral4.png")
+
+    -- current values of the religions
+    valueUnicorn = 0
+    valuePasta = 0
+    valueJedi = 0
+    valueBlackhole = 0
+
+end
+
+function love.update(dt)
+	-- test function implementing click events. Change background image on click event
+	
+end
+
+-- check whether certain item was clicked
 local function onItem(x, y)
     item = 0
     if y >= 400 and y < 500 then
@@ -26,63 +79,26 @@ local function onItem(x, y)
     return item
 end
 
--- function for adding to religion values after item was selected
+local function sumUpValues()
+	-- create list of final values
+	table.insert(result, valueUnicorn)
+	table.insert(result, valuePasta)
+	table.insert(result, valueJedi)
+	table.insert(result, valueBlackhole)
+	res = math.max(unpack(result))
+end
+
+-- function for adding values to religion after item was selected
 local function addValueToReligion(religion, value)
-    if religion == 1 then
-        valueUnicorn = valueUnicorn + value
-    elseif religion == 2 then
-        valuePasta = valuePasta + value
-    elseif religion == 3 then
-        valueJedi = valueJedi + value
-    elseif religion == 4 then
-        valueBlackhole = valueBlackhole + value
-    end
-end
-
-function love.load()
-    love.window.setMode(900, 600)
-    bg1 = love.graphics.newImage("Background1.png")
-    bg2 = love.graphics.newImage("Background2.png")
-    bgBirth = love.graphics.newImage("BirthBackground.png")
-    bgSchool = love.graphics.newImage("SchoolBackground.png")
-    bgUni = love.graphics.newImage("UniversityBackground.png")
-    bgFuneral = love.graphics.newImage("FuneralsBackground.png")
-    smile = love.graphics.newImage("smile.png")
-    love.graphics.setColor(255,255,255,255)
-    background = bg1
-    icon1 = nilnil
-    icon2 = nilnil
-    icon3 = nilnil
-    icon4 = nilnil
-    -- load item icons
-    birth1 = love.graphics.newImage("birth1.png")
-    birth2 = love.graphics.newImage("birth2.png")
-    birth3 = love.graphics.newImage("birth3.png")
-    birth4 = love.graphics.newImage("birth4.png")
-    school1 = love.graphics.newImage("school1.png")
-    school2 = love.graphics.newImage("school2.png")
-    school3 = love.graphics.newImage("school3.png")
-    school4 = love.graphics.newImage("school4.png")
-    uni1 = love.graphics.newImage("uni1.png")
-    uni2 = love.graphics.newImage("uni2.png")
-    uni3 = love.graphics.newImage("uni3.png")
-    uni4 = love.graphics.newImage("uni4.png")
-    funeral1 = love.graphics.newImage("funeral1.png")
-    funeral2 = love.graphics.newImage("funeral2.png")
-    funeral3 = love.graphics.newImage("funeral3.png")
-    funeral4 = love.graphics.newImage("funeral4.png")
-
-    -- current values of the religions
-    valueUnicorn = 0
-    valuePasta = 0
-    valueJedi = 0
-    valueBlackhole = 0
-
-end
-
-function love.update(dt)
-	-- test function implementing click events. Change background image on click event
-	
+	if religion == 1 then
+	    valueUnicorn = valueUnicorn + value
+	elseif religion == 2 then
+	    valuePasta = valuePasta + value
+	elseif religion == 3 then
+	    valueJedi = valueJedi + value
+	elseif religion == 4 then
+	    valueBlackhole = valueBlackhole + value
+	end
 end
 
 function love.mousepressed(x,y,button)
@@ -123,51 +139,50 @@ function love.mousepressed(x,y,button)
             icon4 = funeral4
         elseif stage == 4 and selectedItem ~= 0 and clicked then
             addValueToReligion(selectedItem, 0.9)
+            background = bgFuneral
             stage = 5
-            background = bg1
             icon1 = smile
             icon2 = smile
             icon3 = smile
             icon4 = smile
-        -- elseif stage == 2 then
-        --     background = bgSchool
-        --     stage = 3
-        end
+        elseif stage == 5 then
+            background = bg1
+        	sumUpValues()
+    	end
     end
-    -- if  and not clicked and onItem(x, y) ~= nil  then
-    --     background = bg2
-    --     imgx = x
-    --     imgy = y
-    --     clicked = true
-    -- elseif button == 'l' and clicked and onItem(x, y) ~= nil then
-    --     background = bg1
-    --     imgx = x
-    --     imgy = y
-    --     clicked = false
-    -- end
+
 end
 
 function love.draw()
 	if stage == 0 then 
 		love.graphics.draw(background)
-	else
+		love.graphics.print("choose rituals and items carefully", 350, 50)
+	elseif stage < 5 then
 		love.graphics.draw(background)
 	    love.graphics.draw(icon1, 100, 400)
 	    love.graphics.draw(icon2, 300, 400)
 	    love.graphics.draw(icon3, 500, 400)
 	    love.graphics.draw(icon4, 700, 400)
-	 end 
+
+	    love.graphics.print("selected item", 100, 190)
+		love.graphics.print(tostring(item), 270, 190)
+
+	    -- current religion values
+		love.graphics.print("final score ist", 100, 200)
+
+		love.graphics.print("unicorn", 100, 220)
+		love.graphics.print(tostring(valueUnicorn), 180, 220)
+		love.graphics.print("pasta", 100, 240)
+		love.graphics.print(tostring(valuePasta), 180, 240)
+		love.graphics.print("jedi", 100, 260)
+		love.graphics.print(tostring(valueJedi), 180, 260)
+		love.graphics.print("blackhole", 100, 280)
+		love.graphics.print(tostring(valueBlackhole), 180, 280)
+	elseif stage == 5 then
+		love.graphics.draw(background)
+	    love.graphics.print("blackhole", 100, 280)
+		love.graphics.print(tostring(res), 180, 300)
+	end 
 
     --debug strings
-    love.graphics.print("selected item", 100, 190)
-	love.graphics.print(tostring(item), 270, 190)
-    -- current religion values
-    love.graphics.print("unicorn", 100, 220)
-    love.graphics.print(tostring(valueUnicorn), 180, 220)
-    love.graphics.print("pasta", 100, 240)
-    love.graphics.print(tostring(valuePasta), 180, 240)
-    love.graphics.print("jedi", 100, 260)
-    love.graphics.print(tostring(valueJedi), 180, 260)
-    love.graphics.print("blackhole", 100, 280)
-    love.graphics.print(tostring(valueBlackhole), 180, 280)
 end
