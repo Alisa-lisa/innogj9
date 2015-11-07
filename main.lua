@@ -5,6 +5,7 @@ stage = 0
 religions = {1,2,3,4}
 
 local function onItem(x, y)
+    item = 0
     if y >= 400 and y < 500 then
         if x >= 100 and x < 200 then
             item = 1
@@ -19,8 +20,6 @@ local function onItem(x, y)
             item = 4
             clicked = true
         end
-    else
-    	item = 0
     end
     return item
 end
@@ -49,10 +48,10 @@ function love.mousepressed(x,y,button)
             stage = 1
             background = bgBirth
         -- choose item for the first stage
-        elseif stage == 1 and onItem(x,y) ~= 5 and clicked then
+        elseif stage == 1 and onItem(x,y) ~= 0 and clicked then
             stage = 2
             background = bgSchool
-        elseif stage == 2 and onItem(x,y) ~= 5 and clicked then
+        elseif stage == 2 and onItem(x,y) ~= 0 and clicked then
             stage = 3
             background = bgUni
         -- elseif stage == 2 then
