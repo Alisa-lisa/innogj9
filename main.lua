@@ -48,6 +48,24 @@ function love.load()
     smile = love.graphics.newImage("smile.png")
     love.graphics.setColor(255,255,255,255)
     background = bg1
+    -- load item icons
+    birth1 = love.graphics.newImage("birth1.png")
+    birth2 = love.graphics.newImage("birth2.png")
+    birth3 = love.graphics.newImage("birth3.png")
+    birth4 = love.graphics.newImage("birth4.png")
+    school1 = love.graphics.newImage("school1.png")
+    school2 = love.graphics.newImage("school2.png")
+    school3 = love.graphics.newImage("school3.png")
+    school4 = love.graphics.newImage("school4.png")
+    uni1 = love.graphics.newImage("uni1.png")
+    uni2 = love.graphics.newImage("uni2.png")
+    uni3 = love.graphics.newImage("uni3.png")
+    uni4 = love.graphics.newImage("uni4.png")
+    funeral1 = love.graphics.newImage("funeral1.png")
+    funeral2 = love.graphics.newImage("funeral2.png")
+    funeral3 = love.graphics.newImage("funeral3.png")
+    funeral4 = love.graphics.newImage("funeral4.png")
+
     -- current values of the religions
     valueUnicorn = 0
     valuePasta = 0
