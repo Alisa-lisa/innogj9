@@ -2,6 +2,7 @@ background = nil
 clicked = true
 
 function love.load()
+	love.window.setMode(800, 600)
 	bg1 = love.graphics.newImage("Background1.png")
 	bg2 = love.graphics.newImage("Background2.png")
 	smile = love.graphics.newImage("smile.png")
