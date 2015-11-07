@@ -1,7 +1,7 @@
 background = nil
 clicked = false
 stage = 0
--- 1 - unicornism, 2-pastafarai,3-jedism,4-blackholism
+-- 1 - unicornism, 2-pastafarai,3-jedism,4-blackholism, 0 - clicking unsupported position
 religions = {1,2,3,4}
 
 local function onItem(x, y)
@@ -19,6 +19,8 @@ local function onItem(x, y)
             item = 4
             clicked = true
         end
+    else
+    	item = 0
     end
     return item
 end
@@ -47,10 +49,10 @@ function love.mousepressed(x,y,button)
             stage = 1
             background = bgBirth
         -- choose item for the first stage
-        elseif stage == 1 and onItem(x,y) ~= nil and clicked then
+        elseif stage == 1 and onItem(x,y) ~= 5 and clicked then
             stage = 2
             background = bgSchool
-        elseif stage == 2 and onItem(x,y) ~= 1 and clicked then
+        elseif stage == 2 and onItem(x,y) ~= 5 and clicked then
             stage = 3
             background = bgUni
         -- elseif stage == 2 then

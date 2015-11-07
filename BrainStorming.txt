@@ -5,7 +5,7 @@ What can we use to make our game cooler and make the presentation of the game co
 ToDo:
 	! Important ! Birth, School, University and Funerals attributes should be done first, so that we hav our prototype as soon as possible 
 
-Alisa:  3. create events scenes: Birth - done, School - , University - , Funerals - , 
+Alisa:  3. create events scenes: Birth - done, School - done, University - done, Funerals - , 
 		4. draw the attributes of the Balckholism for every event
 		5. draw the positive end scene of the Blackholism
 
