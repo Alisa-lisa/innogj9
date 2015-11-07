@@ -3,6 +3,8 @@ clicked = false
 stage = 0
 -- 1 - unicornism, 2-pastafarai,3-jedism,4-blackholism, 0 - clicking unsupported position
 religions = {1,2,3,4}
+-- coefficients = {birth:0.16, school:0.6, newyear:0.4, 16th:0.3, haloween:0.18, uni:0.7, marriage:0.5, job:0.75, funerals:1}
+coefficints = {0.16, 0.6, 0.7, 1}
 
 local function onItem(x, y)
     item = 0
@@ -48,10 +50,10 @@ function love.load()
     smile = love.graphics.newImage("smile.png")
     love.graphics.setColor(255,255,255,255)
     background = bg1
-    icon1 = smile
-    icon2 = smile
-    icon3 = smile
-    icon4 = smile
+    icon1 = nilnil
+    icon2 = nilnil
+    icon3 = nilnil
+    icon4 = nilnil
     -- load item icons
     birth1 = love.graphics.newImage("birth1.png")
     birth2 = love.graphics.newImage("birth2.png")
@@ -146,11 +148,15 @@ function love.mousepressed(x,y,button)
 end
 
 function love.draw()
-	love.graphics.draw(background)
-    love.graphics.draw(icon1, 100, 400)
-    love.graphics.draw(icon2, 300, 400)
-    love.graphics.draw(icon3, 500, 400)
-    love.graphics.draw(icon4, 700, 400)
+	if stage == 0 then 
+		love.graphics.draw(background)
+	else
+		love.graphics.draw(background)
+	    love.graphics.draw(icon1, 100, 400)
+	    love.graphics.draw(icon2, 300, 400)
+	    love.graphics.draw(icon3, 500, 400)
+	    love.graphics.draw(icon4, 700, 400)
+	 end 
 
     --debug strings
     love.graphics.print("selected item", 100, 190)
