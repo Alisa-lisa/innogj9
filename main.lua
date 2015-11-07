@@ -50,5 +50,5 @@ function love.draw()
 	for i=0, 3, 1 do
 		love.graphics.draw(smile, 100 + 200 * i, 400)
 	end
-	-- love.graphics.print(tostring(clicked), 100, 200)
+	love.graphics.print(tostring(item), 100, 200)
 end
