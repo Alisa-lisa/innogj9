@@ -49,10 +49,10 @@ function love.mousepressed(x,y,button)
             stage = 1
             background = bgBirth
         -- choose item for the first stage
-        elseif stage == 1 and onItem(x,y) ~= 5 and clicked then
+        elseif stage == 1 and onItem(x,y) ~= 0 and clicked then
             stage = 2
             background = bgSchool
-        elseif stage == 2 and onItem(x,y) ~= 5 and clicked then
+        elseif stage == 2 and onItem(x,y) ~= 0 and clicked then
             stage = 3
             background = bgUni
         -- elseif stage == 2 then
