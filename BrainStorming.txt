@@ -5,13 +5,13 @@ What can we use to make our game cooler and make the presentation of the game co
 ToDo:
 	! Important ! Birth, School, University and Funerals attributes should be done first, so that we hav our prototype as soon as possible 
 
-Alisa:  1. make objects cliackable 
-		3. create events scenes
+Alisa:  3. create events scenes: Birth - done, School - , University - , Funerals - , 
 		4. draw the attributes of the Balckholism for every event
 		5. draw the positive end scene of the Blackholism
 
 Anvi:
-		0. Mitoden: memories mode implementieren
+		0. Mitсoden: memories mode implementieren
+		1. make objects cliackable 
 		1. draw atributes for all events for Pastafarian
 		2. draw the end scene of the positive Pastafarian
 
