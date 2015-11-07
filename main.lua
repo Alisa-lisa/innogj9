@@ -5,6 +5,7 @@ stage = 0
 religions = {1,2,3,4}
 
 local function onItem(x, y)
+    item = 0
     if y >= 400 and y < 500 then
         if x >= 100 and x < 200 then
             item = 1
@@ -19,9 +20,13 @@ local function onItem(x, y)
             item = 4
             clicked = true
         end
+<<<<<<< HEAD
 	else
 		item = 0
 	end
+=======
+    end
+>>>>>>> bcfb796d3dcf5131fdae2a7d32ed16bdb5a85acd
     return item
 end
 
