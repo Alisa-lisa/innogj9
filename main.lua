@@ -20,13 +20,7 @@ local function onItem(x, y)
             item = 4
             clicked = true
         end
-<<<<<<< HEAD
-	else
-		item = 0
-	end
-=======
     end
->>>>>>> bcfb796d3dcf5131fdae2a7d32ed16bdb5a85acd
     return item
 end
 
