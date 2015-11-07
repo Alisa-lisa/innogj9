@@ -34,17 +34,17 @@ function love.load()
     school1 = love.graphics.newImage("school1.png")
     school2 = love.graphics.newImage("school2.png")
     school3 = love.graphics.newImage("school3.png")
-    school4 = love.graphics.newImage("school4.png")
+    school4 = love.graphics.newImage("school_blackh.png")
 
     uni1 = love.graphics.newImage("uni1.png")
     uni2 = love.graphics.newImage("uni2.png")
     uni3 = love.graphics.newImage("uni3.png")
-    uni4 = love.graphics.newImage("uni4.png")
+    uni4 = love.graphics.newImage("uni_blackh.png")
 
     funeral1 = love.graphics.newImage("funeral1.png")
     funeral2 = love.graphics.newImage("funeral2.png")
     funeral3 = love.graphics.newImage("funeral3.png")
-    funeral4 = love.graphics.newImage("funeral4.png")
+    funeral4 = love.graphics.newImage("death_blackh.png")
 
     -- current values of the religions
     valueUnicorn = 0
