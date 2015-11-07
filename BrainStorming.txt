@@ -3,6 +3,8 @@ What can we use to make our game cooler and make the presentation of the game co
 1. https://www.youtube.com/watch?v=szzVlQ653as from 0:24 second to 1:43
 
 ToDo:
+	! Important ! Birth, School, University and Funerals attributes should be done first, so that we hav our prototype as soon as possible 
+
 Alisa:  1. make objects cliackable 
 		3. create events scenes
 		4. draw the attributes of the Balckholism for every event
