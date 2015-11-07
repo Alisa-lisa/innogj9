@@ -46,6 +46,11 @@ function love.load()
     funeral3 = love.graphics.newImage("funeral3.png")
     funeral4 = love.graphics.newImage("death_blackh.png")
 
+    -- heaven_unicornism = love.graphics.newImage("funeral1.png")
+    -- heaven_unicornism = love.graphics.newImage("funeral1.png")
+    -- heaven_unicornism = love.graphics.newImage("funeral1.png")
+    heaven_blackholism = love.graphics.newImage("BlackholismHeaven.png")
+
     -- current values of the religions
     valueUnicorn = 0
     valuePasta = 0
@@ -111,6 +116,8 @@ local function addValueToReligion(religion, value)
 	end
 end
 
+
+
 function love.mousepressed(x,y,button)
     if button == 'l' then
         selectedItem = onItem(x,y)
@@ -156,6 +163,17 @@ function love.mousepressed(x,y,button)
             icon3 = smile
             icon4 = smile
         	sumUpValues()
+        elseif stage == 5 and clicked then
+        	if res_name == "Balckholism" then
+        		background = heaven_blackholism
+        	elseif res_name == "Pastafarian" then
+        		background = bg2
+        	elseif res_name == "Unicornism" then
+        		background = bg2
+        	elseif res_name == "Jedismus" then
+        		background = bg2
+        	end
+
     	end
     end
 
@@ -190,6 +208,9 @@ function love.draw()
 		love.graphics.draw(background)
 	    love.graphics.print(tostring(res_name), 100, 280)
 		love.graphics.print(tostring(res_value), 180, 300)
+	-- draw final scenario
+	elseif stage == 6 then
+		love.graphics.draw(background)
 	end 
 
     --debug strings
