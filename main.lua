@@ -5,7 +5,7 @@ stage = 0
 religions = {1,2,3,4}
 -- coefficients = {birth:0.16, school:0.6, newyear:0.4, 16th:0.3, haloween:0.18, uni:0.7, marriage:0.5, job:0.75, funerals:1}
 stages = {0, 1, 2, 3, 4, 5}
-coefficients = {[1] = {0.16}, [2] = {0.6}, [3] = {0.7}, [4] = {1}}
+coefficients = {[1] = {0.16}, [2] = {0.6}, [3] = {0.7}, [4] = {0.5}}
 final_score = {}
 result = {}
 
@@ -29,7 +29,7 @@ function love.load()
     birth1 = love.graphics.newImage("birth1.png")
     birth2 = love.graphics.newImage("birth2.png")
     birth3 = love.graphics.newImage("birth3.png")
-    birth4 = love.graphics.newImage("birth4.png")
+    birth4 = love.graphics.newImage("birth_blackh.png")
 
     school1 = love.graphics.newImage("school1.png")
     school2 = love.graphics.newImage("school2.png")
@@ -62,7 +62,7 @@ end
 -- check whether certain item was clicked
 local function onItem(x, y)
     item = 0
-    if y >= 400 and y < 500 then
+    if y >= 470 and y < 570 then
         if x >= 100 and x < 200 then
             item = 1
             clicked = true
@@ -167,10 +167,10 @@ function love.draw()
 		love.graphics.print("choose rituals and items carefully", 350, 50)
 	elseif stage < 5 then
 		love.graphics.draw(background)
-	    love.graphics.draw(icon1, 100, 400)
-	    love.graphics.draw(icon2, 300, 400)
-	    love.graphics.draw(icon3, 500, 400)
-	    love.graphics.draw(icon4, 700, 400)
+	    love.graphics.draw(icon1, 100, 470)
+	    love.graphics.draw(icon2, 300, 470)
+	    love.graphics.draw(icon3, 500, 470)
+	    love.graphics.draw(icon4, 700, 470)
 
 	    love.graphics.print("selected item", 100, 190)
 		love.graphics.print(tostring(item), 270, 190)
