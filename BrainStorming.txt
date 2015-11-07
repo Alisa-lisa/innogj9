@@ -4,18 +4,26 @@ What can we use to make our game cooler and make the presentation of the game co
 
 ToDo:
 Alisa:  1. make objects cliackable 
-		3. distinguish between "in game mode" and "reading the story mode"
+		3. create events scenes
+		4. draw the attributes of the Balckholism for every event
+		5. draw the positive end scene of the Blackholism
 
 Anvi:
+		0. Mitoden: memories mode implementieren
+		1. draw atributes for all events for Pastafarian
+		2. draw the end scene of the positive Pastafarian
 
 
-
-Camila:
-
+Kamila:
+		-1. Krita installieren
+		0. Mitcoden: starting scene animation, sound
+		1. create starting scene: text with small hint and the question of life
+		2. draw atributes for Unicornism 
+		3. draw the end scene for positive Unicorism
+		4. draw the negative end scene
 
 
 Together:
-		1. create weights matrix (each event gives different weight coefficient)
-		2. think of attributes for each religion for each event
-		3. create events list
-		4. create starting 
+		7. Jedism
+		5. for each religion draw options (assosiated items) for each events
+		6. closing scene
