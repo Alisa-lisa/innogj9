@@ -27,3 +27,7 @@ Together:
 		7. Jedism
 		5. for each religion draw options (assosiated items) for each events
 		6. closing scene
+
+Measurements:
+    background: 1200 x 800
+    items: 100 x 100
