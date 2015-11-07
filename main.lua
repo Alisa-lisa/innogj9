@@ -1,6 +1,8 @@
 background = nil
 clicked = false
 stage = 0
+-- 1 - unicornism, 2-pastafarai,3-jedism,4-blackholism
+religions = {1,2,3,4}
 
 local function onItem(x, y)
     if y >= 400 and y < 500 then
@@ -27,6 +29,7 @@ function love.load()
     bg2 = love.graphics.newImage("Background2.png")
     bgBirth = love.graphics.newImage("BirthBackground.png")
     bgSchool = love.graphics.newImage("SchoolBackground.png")
+    bgUni = love.graphics.newImage("UniversityBackground.png")
     smile = love.graphics.newImage("smile.png")
     love.graphics.setColor(255,255,255,255)
     background = bg1
@@ -47,6 +50,9 @@ function love.mousepressed(x,y,button)
         elseif stage == 1 and onItem(x,y) ~= nil and clicked then
             stage = 2
             background = bgSchool
+        elseif stage == 2 and onItem(x,y) ~= 1 and clicked then
+            stage = 3
+            background = bgUni
         -- elseif stage == 2 then
         --     background = bgSchool
         --     stage = 3
