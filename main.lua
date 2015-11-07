@@ -30,6 +30,19 @@ local function onItem(x, y)
     return item
 end
 
+-- function for adding to religion values after item was selected
+local function addValueToReligion(religion, value)
+    if religion == 1 then
+        valueUnicorn = valueUnicorn + value
+    elseif religion == 2 then
+        valuePasta = valuePasta + value
+    elseif religion == 3 then
+        valueJedi = valueJedi + value
+    elseif religion == 4 then
+        valueBlackhole = valueBlackhole + value
+    end
+end
+
 function love.load()
     love.window.setMode(900, 600)
     bg1 = love.graphics.newImage("Background1.png")
@@ -40,6 +53,12 @@ function love.load()
     smile = love.graphics.newImage("smile.png")
     love.graphics.setColor(255,255,255,255)
     background = bg1
+    -- current values of the religions
+    valueUnicorn = 0
+    valuePasta = 0
+    valueJedi = 0
+    valueBlackhole = 0
+
 end
 
 function love.update(dt)
@@ -55,6 +74,8 @@ function love.mousepressed(x,y,button)
             background = bgBirth
         -- choose item for the first stage
         elseif stage == 1 and onItem(x,y) ~= 0 and clicked then
+            -- call function which adds up values
+            -- addValueToReligion(1, 5)
             stage = 2
             background = bgSchool
         elseif stage == 2 and onItem(x,y) ~= 0 and clicked then
@@ -84,5 +105,17 @@ function love.draw()
 	for i=0, 3, 1 do
 		love.graphics.draw(smile, 100 + 200 * i, 400)
 	end
-	love.graphics.print(tostring(item), 100, 200)
+
+    --debug strings
+    love.graphics.print("selected item", 100, 190)
+	love.graphics.print(tostring(item), 270, 190)
+    -- current religion values
+    love.graphics.print("unicorn", 100, 220)
+    love.graphics.print(tostring(valueUnicorn), 180, 220)
+    love.graphics.print("pasta", 100, 240)
+    love.graphics.print(tostring(valuePasta), 180, 240)
+    love.graphics.print("jedi", 100, 260)
+    love.graphics.print(tostring(valueJedi), 180, 260)
+    love.graphics.print("blackhole", 100, 280)
+    love.graphics.print(tostring(valueBlackhole), 180, 280)
 end
