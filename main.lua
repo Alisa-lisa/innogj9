@@ -48,6 +48,10 @@ function love.load()
     smile = love.graphics.newImage("smile.png")
     love.graphics.setColor(255,255,255,255)
     background = bg1
+    icon1 = smile
+    icon2 = smile
+    icon3 = smile
+    icon4 = smile
     -- load item icons
     birth1 = love.graphics.newImage("birth1.png")
     birth2 = love.graphics.newImage("birth2.png")
@@ -86,23 +90,43 @@ function love.mousepressed(x,y,button)
         if stage == 0 then
             stage = 1
             background = bgBirth
+            icon1 = birth1
+            icon2 = birth2
+            icon3 = birth3
+            icon4 = birth4
         -- choose item for the first stage
         elseif stage == 1 and selectedItem ~= 0 and clicked then
             addValueToReligion(selectedItem, 0.2)
             stage = 2
             background = bgSchool
+            icon1 = school1
+            icon2 = school2
+            icon3 = school3
+            icon4 = school4
         elseif stage == 2 and selectedItem ~= 0 and clicked then
             addValueToReligion(selectedItem, 0.6)
             stage = 3
             background = bgUni
+            icon1 = uni1
+            icon2 = uni2
+            icon3 = uni3
+            icon4 = uni4
         elseif stage == 3 and selectedItem ~= 0 and clicked then
             addValueToReligion(selectedItem, 0.4)
             stage = 4
             background = bgFuneral
+            icon1 = funeral1
+            icon2 = funeral2
+            icon3 = funeral3
+            icon4 = funeral4
         elseif stage == 4 and selectedItem ~= 0 and clicked then
             addValueToReligion(selectedItem, 0.9)
             stage = 5
             background = bg1
+            icon1 = smile
+            icon2 = smile
+            icon3 = smile
+            icon4 = smile
         -- elseif stage == 2 then
         --     background = bgSchool
         --     stage = 3
@@ -123,10 +147,10 @@ end
 
 function love.draw()
 	love.graphics.draw(background)
-	-- draw images in a row to present a choise lter on draw figure from a list to a position
-	for i=0, 3, 1 do
-		love.graphics.draw(smile, 100 + 200 * i, 400)
-	end
+    love.graphics.draw(icon1, 100, 400)
+    love.graphics.draw(icon2, 300, 400)
+    love.graphics.draw(icon3, 500, 400)
+    love.graphics.draw(icon4, 700, 400)
 
     --debug strings
     love.graphics.print("selected item", 100, 190)
