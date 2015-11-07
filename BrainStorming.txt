@@ -5,7 +5,7 @@ What can we use to make our game cooler and make the presentation of the game co
 ToDo:
 	! Important ! Birth, School, University and Funerals attributes should be done first, so that we hav our prototype as soon as possible 
 
-Alisa:  3. create events scenes: Birth - done, School - done, University - done, Funerals - , 
+Alisa:  3. create events scenes: Birth - done, School - done, University - done, Funerals - Funerals, 
 		4. draw the attributes of the Balckholism for every event
 		5. draw the positive end scene of the Blackholism
 
@@ -17,11 +17,9 @@ Anvi:
 
 
 Kamila:
-		-1. Krita installieren
 		0. Mitcoden: starting scene animation, sound
 		1. create starting scene: text with small hint and the question of life
 		2. draw atributes for Unicornism 
-		3. draw the end scene for positive Unicorism
 		4. draw the negative end scene
 
 
