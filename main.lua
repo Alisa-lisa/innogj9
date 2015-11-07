@@ -44,6 +44,7 @@ function love.load()
     bgBirth = love.graphics.newImage("BirthBackground.png")
     bgSchool = love.graphics.newImage("SchoolBackground.png")
     bgUni = love.graphics.newImage("UniversityBackground.png")
+    bgFuneral = love.graphics.newImage("FuneralsBackground.png")
     smile = love.graphics.newImage("smile.png")
     love.graphics.setColor(255,255,255,255)
     background = bg1
@@ -62,19 +63,28 @@ end
 
 function love.mousepressed(x,y,button)
     if button == 'l' then
+        selectedItem = onItem(x,y)
         -- satrt the game load the first background
         if stage == 0 then
             stage = 1
             background = bgBirth
         -- choose item for the first stage
-        elseif stage == 1 and onItem(x,y) ~= 0 and clicked then
-            -- call function which adds up values
-            -- addValueToReligion(1, 5)
+        elseif stage == 1 and selectedItem ~= 0 and clicked then
+            addValueToReligion(selectedItem, 0.2)
             stage = 2
             background = bgSchool
-        elseif stage == 2 and onItem(x,y) ~= 0 and clicked then
+        elseif stage == 2 and selectedItem ~= 0 and clicked then
+            addValueToReligion(selectedItem, 0.6)
             stage = 3
             background = bgUni
+        elseif stage == 3 and selectedItem ~= 0 and clicked then
+            addValueToReligion(selectedItem, 0.4)
+            stage = 4
+            background = bgFuneral
+        elseif stage == 4 and selectedItem ~= 0 and clicked then
+            addValueToReligion(selectedItem, 0.9)
+            stage = 5
+            background = bg1
         -- elseif stage == 2 then
         --     background = bgSchool
         --     stage = 3
