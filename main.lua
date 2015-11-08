@@ -1,7 +1,7 @@
 background = nil
 clicked = false
 stage = 0
--- 1 - unicornism, 2-pastafarai,3-jedism,4-blackholism, 0 - clicking unsupported position
+-- 1 - unicornism, 2-jedism,3-pastafari,4-blackholism, 0 - clicking unsupported position
 religions = {1,2,3,4}
 -- coefficients = {birth:0.16, school:0.6, newyear:0.4, 16th:0.3, haloween:0.18, uni:0.7, marriage:0.5, job:0.75, funerals:1}
 stages = {0, 1, 2, 3, 4, 5}
@@ -27,22 +27,22 @@ function love.load()
     icon4 = nil
     -- load item icons
     birth1 = love.graphics.newImage("birth1.png")
-    birth2 = love.graphics.newImage("birth_pasta.png")
-    birth3 = love.graphics.newImage("birth3.png")
+    birth2 = love.graphics.newImage("birth_jedi.png")
+    birth3 = love.graphics.newImage("birth_pasta.png")
     birth4 = love.graphics.newImage("birth_blackh.png")
 
     school1 = love.graphics.newImage("school1.png")
-    school2 = love.graphics.newImage("school2.png")
+    school2 = love.graphics.newImage("school_jedi.png")
     school3 = love.graphics.newImage("school3.png")
     school4 = love.graphics.newImage("school_blackh.png")
 
     uni1 = love.graphics.newImage("uni1.png")
-    uni2 = love.graphics.newImage("uni2.png")
+    uni2 = love.graphics.newImage("uni_jedi.png")
     uni3 = love.graphics.newImage("uni3.png")
     uni4 = love.graphics.newImage("uni_blackh.png")
 
     funeral1 = love.graphics.newImage("funeral1.png")
-    funeral2 = love.graphics.newImage("funeral2.png")
+    funeral2 = love.graphics.newImage("death_jedi.png")
     funeral3 = love.graphics.newImage("funeral3.png")
     funeral4 = love.graphics.newImage("death_blackh.png")
 
