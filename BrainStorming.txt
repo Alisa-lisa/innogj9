@@ -6,7 +6,6 @@ ToDo:
 	! Important ! Birth, School, University and Funerals attributes should be done first, so that we hav our prototype as soon as possible 
 
 Alisa:  
-		8. sound 
 Anvi:
 		0. Mitсoden: memories mode implementieren
 		1. draw atributes for all events for Pastafarian

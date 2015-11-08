@@ -8,6 +8,7 @@ stages = {0, 1, 2, 3, 4, 5}
 coefficients = {[1] = {0.16}, [2] = {0.6}, [3] = {0.7}, [4] = {0.5}}
 final_score = {}
 result = {}
+memories = {}
 
 
 function love.load()
@@ -109,13 +110,17 @@ end
 -- function for adding values to religion after item was selected
 local function addValueToReligion(religion, value)
 	if religion == 1 then
+        table.insert(memories, icon1)
 	    valueUnicorn = valueUnicorn + value
 	elseif religion == 2 then
 	    valuePasta = valuePasta + value
+        table.insert(memories, icon2)
 	elseif religion == 3 then
 	    valueJedi = valueJedi + value
+        table.insert(memories, icon3)
 	elseif religion == 4 then
 	    valueBlackhole = valueBlackhole + value
+        table.insert(memories, icon4)
 	end
 end
 
@@ -183,38 +188,43 @@ function love.mousepressed(x,y,button)
 end
 
 function love.draw()
-	if stage == 0 then 
-		love.graphics.draw(background)
-		love.graphics.print("choose rituals and items carefully", 350, 50)
-	elseif stage < 5 then
-		love.graphics.draw(background)
-	    love.graphics.draw(icon1, 100, 470)
-	    love.graphics.draw(icon2, 300, 470)
-	    love.graphics.draw(icon3, 500, 470)
-	    love.graphics.draw(icon4, 700, 470)
+    if stage == 0 then 
+        love.graphics.draw(background)
+        love.graphics.print("choose rituals and items carefully", 350, 50)
+    elseif stage < 5 then
+        love.graphics.draw(background)
+        love.graphics.draw(icon1, 100, 470)
+        love.graphics.draw(icon2, 300, 470)
+        love.graphics.draw(icon3, 500, 470)
+        love.graphics.draw(icon4, 700, 470)
 
-	    love.graphics.print("selected item", 100, 190)
-		love.graphics.print(tostring(item), 270, 190)
+        love.graphics.print("selected item", 100, 190)
+        love.graphics.print(tostring(item), 270, 190)
 
-	    -- current religion values
-		love.graphics.print("final score ist", 100, 200)
+        -- current religion values
+        love.graphics.print("final score ist", 100, 200)
 
-		love.graphics.print("unicorn", 100, 220)
-		love.graphics.print(tostring(valueUnicorn), 180, 220)
-		love.graphics.print("pasta", 100, 240)
-		love.graphics.print(tostring(valuePasta), 180, 240)
-		love.graphics.print("jedi", 100, 260)
-		love.graphics.print(tostring(valueJedi), 180, 260)
-		love.graphics.print("blackhole", 100, 280)
-		love.graphics.print(tostring(valueBlackhole), 180, 280)
-	elseif stage == 5 then
-		love.graphics.draw(background)
-	    love.graphics.print(tostring(res_name), 100, 280)
-		love.graphics.print(tostring(res_value), 180, 300)
-	-- draw final scenario
-	elseif stage == 6 then
-		love.graphics.draw(background)
-	end 
+        love.graphics.print("unicorn", 100, 220)
+        love.graphics.print(tostring(valueUnicorn), 180, 220)
+        love.graphics.print("pasta", 100, 240)
+        love.graphics.print(tostring(valuePasta), 180, 240)
+        love.graphics.print("jedi", 100, 260)
+        love.graphics.print(tostring(valueJedi), 180, 260)
+        love.graphics.print("blackhole", 100, 280)
+        love.graphics.print(tostring(valueBlackhole), 180, 280)
+    elseif stage == 5 then
+        love.graphics.draw(background)
+        love.graphics.print(tostring(res_name), 100, 280)
+        love.graphics.print(tostring(res_value), 180, 300)
+    -- draw final scenario
+    elseif stage == 6 then
+        love.graphics.draw(background)
+    end 
+    if table.getn(memories) > 0 then
+        for i=0,table.getn(memories),1 do
+            love.love.graphics.draw(memories[i], 10 + 100*i, 10)
+        end
+    end
 
     --debug strings
 end
