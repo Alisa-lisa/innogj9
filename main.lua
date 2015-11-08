@@ -47,13 +47,14 @@ function love.load()
 
     funeral1 = love.graphics.newImage("funeral1.png")
     funeral2 = love.graphics.newImage("death_jedi.png")
-    funeral3 = love.graphics.newImage("funeral3.png")
+    funeral3 = love.graphics.newImage("funeral_pasta.png")
     funeral4 = love.graphics.newImage("death_blackh.png")
 
     -- heaven_unicornism = love.graphics.newImage("funeral1.png")
     -- heaven_unicornism = love.graphics.newImage("funeral1.png")
     -- heaven_unicornism = love.graphics.newImage("funeral1.png")
     heaven_blackholism = love.graphics.newImage("BlackholismHeaven.png")
+    
 
     -- current values of the religions
     valueUnicorn = 0
