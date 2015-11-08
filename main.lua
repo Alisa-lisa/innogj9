@@ -18,8 +18,11 @@ function love.load()
     bgSchool = love.graphics.newImage("SchoolBackground.png")
     bgUni = love.graphics.newImage("UniversityBackground.png")
     bgFuneral = love.graphics.newImage("FuneralsBackground.png")
-    smile = love.graphics.newImage("smile.png")
-    love.graphics.setColor(255,255,255,255)
+
+    bgSound = love.audio.newSource('background.ogg', 'stream')
+    bgSound:setVolume(0.15)
+    bgSound:play()
+
     background = bg1
     icon1 = nil
     icon2 = nil
@@ -99,7 +102,7 @@ local function sumUpValues()
 	elseif res_value == valueJedi then
 	    res_name = "Jedism"
 	elseif res_value == valueBlackhole then
-	    res_name = "Balckholism"
+	    res_name = "Blackholism"
 	end
 end
 
