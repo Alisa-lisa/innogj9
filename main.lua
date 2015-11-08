@@ -40,7 +40,7 @@ function love.load()
     school3 = love.graphics.newImage("school_pasta.png")
     school4 = love.graphics.newImage("school_blackh.png")
 
-    uni1 = love.graphics.newImage("smile.png")
+    uni1 = love.graphics.newImage("uni_unicorn.png")
     uni2 = love.graphics.newImage("uni_jedi.png")
     uni3 = love.graphics.newImage("uni_pasta.png")
     uni4 = love.graphics.newImage("uni_blackh.png")
@@ -89,7 +89,7 @@ local function onItem(x, y)
     return item
 end
 
-local function sumUpValues()
+function sumUpValues()
 	-- create list of final values
 	table.insert(result, valueUnicorn)
 	table.insert(result, valuePasta)
@@ -108,23 +108,21 @@ local function sumUpValues()
 end
 
 -- function for adding values to religion after item was selected
-local function addValueToReligion(religion, value)
-	if religion == 1 then
+function addValueToReligion(religion, value)
+    if religion == 1 then
+        valueUnicorn = valueUnicorn + value
         table.insert(memories, icon1)
-	    valueUnicorn = valueUnicorn + value
-	elseif religion == 2 then
-	    valuePasta = valuePasta + value
+    elseif religion == 2 then
+        valueJedi = valueJedi + value
         table.insert(memories, icon2)
-	elseif religion == 3 then
-	    valueJedi = valueJedi + value
+    elseif religion == 3 then
+        valuePasta = valuePasta + value
         table.insert(memories, icon3)
-	elseif religion == 4 then
-	    valueBlackhole = valueBlackhole + value
+    elseif religion == 4 then
+        valueBlackhole = valueBlackhole + value
         table.insert(memories, icon4)
-	end
+    end
 end
-
-
 
 function love.mousepressed(x,y,button)
     if button == 'l' then
@@ -139,7 +137,7 @@ function love.mousepressed(x,y,button)
             icon4 = birth4
         -- choose item for the first stage
         elseif stage == 1 and selectedItem ~= 0 and clicked then
-            addValueToReligion(selectedItem, 0.2)
+            addValueToReligion(selectedItem, 0.16)
             stage = 2
             background = bgSchool
             icon1 = school1
@@ -155,7 +153,7 @@ function love.mousepressed(x,y,button)
             icon3 = uni3
             icon4 = uni4
         elseif stage == 3 and selectedItem ~= 0 and clicked then
-            addValueToReligion(selectedItem, 0.4)
+            addValueToReligion(selectedItem, 0.7)
             stage = 4
             background = bgFuneral
             icon1 = funeral1
@@ -163,7 +161,7 @@ function love.mousepressed(x,y,button)
             icon3 = funeral3
             icon4 = funeral4
         elseif stage == 4 and selectedItem ~= 0 and clicked then
-            addValueToReligion(selectedItem, 0.9)
+            addValueToReligion(selectedItem, 0.5)
             background = bg1
             stage = 5
             icon1 = smile
@@ -221,8 +219,8 @@ function love.draw()
         love.graphics.draw(background)
     end 
     if table.getn(memories) > 0 then
-        for i=0,table.getn(memories),1 do
-            love.love.graphics.draw(memories[i], 10 + 100*i, 10)
+        for i=1,table.getn(memories),1 do
+            love.graphics.draw(memories[i], 10 + 102*i, 10)
         end
     end
 
