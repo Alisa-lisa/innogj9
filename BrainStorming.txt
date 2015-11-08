@@ -7,19 +7,15 @@ ToDo:
 
 Alisa:  
 Anvi:
-		0. Mitсoden: memories mode implementieren
-		1. draw atributes for all events for Pastafarian
 		2. draw the end scene of the positive Pastafarian
 
 
 Kamila:
 		0. Mitcoden: starting scene animation
 		1. create starting scene: text with small hint and the question of life
-		2. draw atributes for Unicornism 
 		4. draw the negative end scene
 
 Together:
-		5. memories (pics only)
 		6. pics
 		6. closing scene
 		7. Starter scene (text and start button)

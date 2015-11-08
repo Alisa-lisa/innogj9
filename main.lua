@@ -13,7 +13,7 @@ memories = {}
 
 function love.load()
     love.window.setMode(900, 600)
-    bg1 = love.graphics.newImage("Background1.png")
+    bg1 = love.graphics.newImage("startScene.png")
     bg2 = love.graphics.newImage("Background2.png")
     bgBirth = love.graphics.newImage("BirthBackground.png")
     bgSchool = love.graphics.newImage("SchoolBackground.png")
@@ -23,6 +23,9 @@ function love.load()
     bgSound = love.audio.newSource('background.ogg', 'stream')
     bgSound:setVolume(0.15)
     bgSound:play()
+
+    -- start button
+    startButton = love.graphics.newImage("go.png")
 
     background = bg1
     icon1 = nil
@@ -89,6 +92,16 @@ local function onItem(x, y)
     return item
 end
 
+function onButton(x,y)
+    clicked_button = false
+    if y >= 520 and y < 570 then
+        if x >= 430 and x < 480 then
+            clicked_button = true
+        end
+    end
+    return clicked_button
+end
+
 function sumUpValues()
 	-- create list of final values
 	table.insert(result, valueUnicorn)
@@ -127,8 +140,9 @@ end
 function love.mousepressed(x,y,button)
     if button == 'l' then
         selectedItem = onItem(x,y)
+        go = onButton(x,y)
         -- satrt the game load the first background
-        if stage == 0 then
+        if go and stage == 0 then
             stage = 1
             background = bgBirth
             icon1 = birth1
@@ -184,13 +198,13 @@ function love.mousepressed(x,y,button)
             end
     	end
     end
-
 end
 
 function love.draw()
     if stage == 0 then 
         love.graphics.draw(background)
-        love.graphics.print("choose rituals and items carefully", 350, 50)
+        love.graphics.draw(startButton, 430, 520)
+
     elseif stage < 5 then
         love.graphics.draw(background)
         love.graphics.draw(icon1, 100, 470)
