@@ -14,7 +14,9 @@ memories = {}
 function love.load()
     love.window.setMode(900, 600)
     bg1 = love.graphics.newImage("startScene.png")
-    bg2 = love.graphics.newImage("Background2.png")
+    bg2 = love.graphics.newImage("finalScene.png")
+    bg3 = love.graphics.newImage("question.png")
+
     bgBirth = love.graphics.newImage("BirthBackground.png")
     bgSchool = love.graphics.newImage("SchoolBackground.png")
     bgUni = love.graphics.newImage("UniversityBackground.png")
@@ -53,9 +55,8 @@ function love.load()
     funeral3 = love.graphics.newImage("funeral_pasta.png")
     funeral4 = love.graphics.newImage("death_blackh.png")
 
-    -- heaven_unicornism = love.graphics.newImage("funeral1.png")
-    -- heaven_unicornism = love.graphics.newImage("funeral1.png")
-    -- heaven_unicornism = love.graphics.newImage("funeral1.png")
+    heaven_jedi = love.graphics.newImage("hell.png")
+    heaven_unicornism = love.graphics.newImage("UnicornHeaven.png")
     heaven_blackholism = love.graphics.newImage("BlackholismHeaven.png")
     heaven_pasta = love.graphics.newImage("PastaHeaven.png")
 
@@ -113,9 +114,9 @@ function sumUpValues()
 	if res_value == valueUnicorn then
 		res_name = "Unicornism"
 	elseif res_value == valuePasta then
-	    res_name = "Pastafarai"
+	    res_name = "Pastafarian"
 	elseif res_value == valueJedi then
-	    res_name = "Jedism"
+	    res_name = "Jedismus"
 	elseif res_value == valueBlackhole then
 	    res_name = "Blackholism"
 	end
@@ -178,25 +179,21 @@ function love.mousepressed(x,y,button)
             icon4 = funeral4
         elseif stage == 4 and selectedItem ~= 0 and clicked then
             addValueToReligion(selectedItem, 0.5)
-            background = bg1
+            background = bg2
             stage = 5
-            icon1 = smile
-            icon2 = smile
-            icon3 = smile
-            icon4 = smile
         elseif stage == 5 and clicked then
         	sumUpValues()
             memories = {}
             stage = 6
-        elseif stage == 6 and clicked then
+        elseif go and stage == 6 and clicked then
             if res_name == "Blackholism" then
                 background = heaven_blackholism
             elseif res_name == "Pastafarian" then
                 background = heaven_pasta
             elseif res_name == "Unicornism" then
-                background = bg2
+                background = heaven_unicornism
             elseif res_name == "Jedismus" then
-                background = bg2
+                background = heaven_jedi
             end
     	end
     end
@@ -214,23 +211,25 @@ function love.draw()
         love.graphics.draw(icon3, 500, 470)
         love.graphics.draw(icon4, 700, 470)
 
-        love.graphics.print("selected item", 100, 190)
-        love.graphics.print(tostring(item), 270, 190)
-        love.graphics.print(tostring(stage), 270, 220)
+        -- love.graphics.print("selected item", 100, 190)
+        -- love.graphics.print(tostring(item), 270, 190)
+        -- love.graphics.print(tostring(stage), 270, 220)
 
-        -- current religion values
-        love.graphics.print("final score ist", 100, 200)
+        -- -- current religion values
+        -- love.graphics.print("final score ist", 100, 200)
 
-        love.graphics.print("unicorn", 100, 220)
-        love.graphics.print(tostring(valueUnicorn), 180, 220)
-        love.graphics.print("pasta", 100, 240)
-        love.graphics.print(tostring(valuePasta), 180, 240)
-        love.graphics.print("jedi", 100, 260)
-        love.graphics.print(tostring(valueJedi), 180, 260)
-        love.graphics.print("blackhole", 100, 280)
-        love.graphics.print(tostring(valueBlackhole), 180, 280)
+        -- love.graphics.print("unicorn", 100, 220)
+        -- love.graphics.print(tostring(valueUnicorn), 180, 220)
+        -- love.graphics.print("pasta", 100, 240)
+        -- love.graphics.print(tostring(valuePasta), 180, 240)
+        -- love.graphics.print("jedi", 100, 260)
+        -- love.graphics.print(tostring(valueJedi), 180, 260)
+        -- love.graphics.print("blackhole", 100, 280)
+        -- love.graphics.print(tostring(valueBlackhole), 180, 280)
     elseif stage == 5 then
-        love.graphics.draw(bg1)
+        love.graphics.draw(bg3)
+        love.graphics.draw(startButton, 430, 520)
+
         -- love.graphics.print(tostring(res_name), 100, 280)
         -- love.graphics.print(tostring(res_value), 180, 300)
     elseif stage == 6 then
