@@ -54,7 +54,7 @@ function love.load()
     -- heaven_unicornism = love.graphics.newImage("funeral1.png")
     -- heaven_unicornism = love.graphics.newImage("funeral1.png")
     heaven_blackholism = love.graphics.newImage("BlackholismHeaven.png")
-    
+    heaven_pasta = love.graphics.newImage("PastaHeaven.png")
 
     -- current values of the religions
     valueUnicorn = 0
@@ -177,7 +177,7 @@ function love.mousepressed(x,y,button)
             if res_name == "Blackholism" then
                 background = heaven_blackholism
             elseif res_name == "Pastafarian" then
-                background = bg2
+                background = heaven_pasta
             elseif res_name == "Unicornism" then
                 background = bg2
             elseif res_name == "Jedismus" then
