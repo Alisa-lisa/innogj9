@@ -26,17 +26,17 @@ function love.load()
     icon3 = nil
     icon4 = nil
     -- load item icons
-    birth1 = love.graphics.newImage("birth1.png")
+    birth1 = love.graphics.newImage("birth_unicorn.png")
     birth2 = love.graphics.newImage("birth_jedi.png")
     birth3 = love.graphics.newImage("birth_pasta.png")
     birth4 = love.graphics.newImage("birth_blackh.png")
 
-    school1 = love.graphics.newImage("school1.png")
+    school1 = love.graphics.newImage("school_unicorn.png")
     school2 = love.graphics.newImage("school_jedi.png")
     school3 = love.graphics.newImage("school_pasta.png")
     school4 = love.graphics.newImage("school_blackh.png")
 
-    uni1 = love.graphics.newImage("uni1.png")
+    uni1 = love.graphics.newImage("smile.png")
     uni2 = love.graphics.newImage("uni_jedi.png")
     uni3 = love.graphics.newImage("uni_pasta.png")
     uni4 = love.graphics.newImage("uni_blackh.png")
