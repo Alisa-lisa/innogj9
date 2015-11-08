@@ -33,12 +33,12 @@ function love.load()
 
     school1 = love.graphics.newImage("school1.png")
     school2 = love.graphics.newImage("school_jedi.png")
-    school3 = love.graphics.newImage("school3.png")
+    school3 = love.graphics.newImage("school_pasta.png")
     school4 = love.graphics.newImage("school_blackh.png")
 
     uni1 = love.graphics.newImage("uni1.png")
     uni2 = love.graphics.newImage("uni_jedi.png")
-    uni3 = love.graphics.newImage("uni3.png")
+    uni3 = love.graphics.newImage("uni_pasta.png")
     uni4 = love.graphics.newImage("uni_blackh.png")
 
     funeral1 = love.graphics.newImage("funeral1.png")
