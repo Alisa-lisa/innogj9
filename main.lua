@@ -168,18 +168,20 @@ function love.mousepressed(x,y,button)
             icon2 = smile
             icon3 = smile
             icon4 = smile
-        	sumUpValues()
         elseif stage == 5 and clicked then
-        	if res_name == "Balckholism" then
-        		background = heaven_blackholism
-        	elseif res_name == "Pastafarian" then
-        		background = bg2
-        	elseif res_name == "Unicornism" then
-        		background = bg2
-        	elseif res_name == "Jedismus" then
-        		background = bg2
-        	end
-
+        	sumUpValues()
+            memories = {}
+            stage = 6
+        elseif stage == 6 and clicked then
+            if res_name == "Blackholism" then
+                background = heaven_blackholism
+            elseif res_name == "Pastafarian" then
+                background = bg2
+            elseif res_name == "Unicornism" then
+                background = bg2
+            elseif res_name == "Jedismus" then
+                background = bg2
+            end
     	end
     end
 
@@ -198,6 +200,7 @@ function love.draw()
 
         love.graphics.print("selected item", 100, 190)
         love.graphics.print(tostring(item), 270, 190)
+        love.graphics.print(tostring(stage), 270, 220)
 
         -- current religion values
         love.graphics.print("final score ist", 100, 200)
@@ -211,10 +214,9 @@ function love.draw()
         love.graphics.print("blackhole", 100, 280)
         love.graphics.print(tostring(valueBlackhole), 180, 280)
     elseif stage == 5 then
-        love.graphics.draw(background)
-        love.graphics.print(tostring(res_name), 100, 280)
-        love.graphics.print(tostring(res_value), 180, 300)
-    -- draw final scenario
+        love.graphics.draw(bg1)
+        -- love.graphics.print(tostring(res_name), 100, 280)
+        -- love.graphics.print(tostring(res_value), 180, 300)
     elseif stage == 6 then
         love.graphics.draw(background)
     end 
