@@ -119,6 +119,7 @@ function sumUpValues()
 	elseif res_value == valueBlackhole then
 	    res_name = "Blackholism"
 	end
+    return res_name, res_value
 end
 
 -- function for adding values to religion after item was selected
