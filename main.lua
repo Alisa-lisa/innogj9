@@ -8,6 +8,7 @@ stages = {0, 1, 2, 3, 4, 5}
 coefficients = {[1] = {0.16}, [2] = {0.6}, [3] = {0.7}, [4] = {0.5}}
 final_score = {}
 result = {}
+memories = {}
 
 
 function love.load()
@@ -18,27 +19,30 @@ function love.load()
     bgSchool = love.graphics.newImage("SchoolBackground.png")
     bgUni = love.graphics.newImage("UniversityBackground.png")
     bgFuneral = love.graphics.newImage("FuneralsBackground.png")
-    smile = love.graphics.newImage("smile.png")
-    love.graphics.setColor(255,255,255,255)
+
+    bgSound = love.audio.newSource('background.ogg', 'stream')
+    bgSound:setVolume(0.15)
+    bgSound:play()
+
     background = bg1
     icon1 = nil
     icon2 = nil
     icon3 = nil
     icon4 = nil
     -- load item icons
-    birth1 = love.graphics.newImage("birth1.png")
+    birth1 = love.graphics.newImage("birth_unicorn.png")
     birth2 = love.graphics.newImage("birth_jedi.png")
     birth3 = love.graphics.newImage("birth_pasta.png")
     birth4 = love.graphics.newImage("birth_blackh.png")
 
-    school1 = love.graphics.newImage("school1.png")
+    school1 = love.graphics.newImage("school_unicorn.png")
     school2 = love.graphics.newImage("school_jedi.png")
-    school3 = love.graphics.newImage("school3.png")
+    school3 = love.graphics.newImage("school_pasta.png")
     school4 = love.graphics.newImage("school_blackh.png")
 
-    uni1 = love.graphics.newImage("uni1.png")
+    uni1 = love.graphics.newImage("smile.png")
     uni2 = love.graphics.newImage("uni_jedi.png")
-    uni3 = love.graphics.newImage("uni3.png")
+    uni3 = love.graphics.newImage("uni_pasta.png")
     uni4 = love.graphics.newImage("uni_blackh.png")
 
     funeral1 = love.graphics.newImage("funeral1.png")
@@ -99,20 +103,24 @@ local function sumUpValues()
 	elseif res_value == valueJedi then
 	    res_name = "Jedism"
 	elseif res_value == valueBlackhole then
-	    res_name = "Balckholism"
+	    res_name = "Blackholism"
 	end
 end
 
 -- function for adding values to religion after item was selected
 local function addValueToReligion(religion, value)
 	if religion == 1 then
+        table.insert(memories, icon1)
 	    valueUnicorn = valueUnicorn + value
 	elseif religion == 2 then
 	    valuePasta = valuePasta + value
+        table.insert(memories, icon2)
 	elseif religion == 3 then
 	    valueJedi = valueJedi + value
+        table.insert(memories, icon3)
 	elseif religion == 4 then
 	    valueBlackhole = valueBlackhole + value
+        table.insert(memories, icon4)
 	end
 end
 
@@ -180,38 +188,43 @@ function love.mousepressed(x,y,button)
 end
 
 function love.draw()
-	if stage == 0 then 
-		love.graphics.draw(background)
-		love.graphics.print("choose rituals and items carefully", 350, 50)
-	elseif stage < 5 then
-		love.graphics.draw(background)
-	    love.graphics.draw(icon1, 100, 470)
-	    love.graphics.draw(icon2, 300, 470)
-	    love.graphics.draw(icon3, 500, 470)
-	    love.graphics.draw(icon4, 700, 470)
+    if stage == 0 then 
+        love.graphics.draw(background)
+        love.graphics.print("choose rituals and items carefully", 350, 50)
+    elseif stage < 5 then
+        love.graphics.draw(background)
+        love.graphics.draw(icon1, 100, 470)
+        love.graphics.draw(icon2, 300, 470)
+        love.graphics.draw(icon3, 500, 470)
+        love.graphics.draw(icon4, 700, 470)
 
-	    love.graphics.print("selected item", 100, 190)
-		love.graphics.print(tostring(item), 270, 190)
+        love.graphics.print("selected item", 100, 190)
+        love.graphics.print(tostring(item), 270, 190)
 
-	    -- current religion values
-		love.graphics.print("final score ist", 100, 200)
+        -- current religion values
+        love.graphics.print("final score ist", 100, 200)
 
-		love.graphics.print("unicorn", 100, 220)
-		love.graphics.print(tostring(valueUnicorn), 180, 220)
-		love.graphics.print("pasta", 100, 240)
-		love.graphics.print(tostring(valuePasta), 180, 240)
-		love.graphics.print("jedi", 100, 260)
-		love.graphics.print(tostring(valueJedi), 180, 260)
-		love.graphics.print("blackhole", 100, 280)
-		love.graphics.print(tostring(valueBlackhole), 180, 280)
-	elseif stage == 5 then
-		love.graphics.draw(background)
-	    love.graphics.print(tostring(res_name), 100, 280)
-		love.graphics.print(tostring(res_value), 180, 300)
-	-- draw final scenario
-	elseif stage == 6 then
-		love.graphics.draw(background)
-	end 
+        love.graphics.print("unicorn", 100, 220)
+        love.graphics.print(tostring(valueUnicorn), 180, 220)
+        love.graphics.print("pasta", 100, 240)
+        love.graphics.print(tostring(valuePasta), 180, 240)
+        love.graphics.print("jedi", 100, 260)
+        love.graphics.print(tostring(valueJedi), 180, 260)
+        love.graphics.print("blackhole", 100, 280)
+        love.graphics.print(tostring(valueBlackhole), 180, 280)
+    elseif stage == 5 then
+        love.graphics.draw(background)
+        love.graphics.print(tostring(res_name), 100, 280)
+        love.graphics.print(tostring(res_value), 180, 300)
+    -- draw final scenario
+    elseif stage == 6 then
+        love.graphics.draw(background)
+    end 
+    if table.getn(memories) > 0 then
+        for i=0,table.getn(memories),1 do
+            love.love.graphics.draw(memories[i], 10 + 100*i, 10)
+        end
+    end
 
     --debug strings
 end
