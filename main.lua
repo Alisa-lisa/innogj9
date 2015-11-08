@@ -27,7 +27,7 @@ function love.load()
     icon4 = nil
     -- load item icons
     birth1 = love.graphics.newImage("birth1.png")
-    birth2 = love.graphics.newImage("birth2.png")
+    birth2 = love.graphics.newImage("birth_pasta.png")
     birth3 = love.graphics.newImage("birth3.png")
     birth4 = love.graphics.newImage("birth_blackh.png")
 
